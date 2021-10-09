@@ -5,7 +5,7 @@ const routes = [
     children: [
       {
         path: '',
-        component: () => import('pages/Index.vue')
+        component: () => import('src/pages')
       },
       {
         path: 'music/',
@@ -13,19 +13,19 @@ const routes = [
           {
             path: '',
             name: 'music.index',
-            component: () => import('pages/music/Index.vue')
+            component: () => import('pages/music/index.vue')
           },
           {
             path: 'create',
             name: 'music.create',
-            component: () => import('pages/music/Create.vue')
+            component: () => import('pages/music/create.vue')
           },
           {
             path: 'edit/:music',
             name: 'music.edit',
-            component: () => import('pages/music/Edit.vue')
+            component: () => import('pages/music/edit.vue')
           },
-        ]
+        ],
       },
       {
         path: 'album/',
@@ -33,17 +33,17 @@ const routes = [
           {
             path: '',
             name: 'album.index',
-            component: () => import('pages/album/Index.vue')
+            component: () => import('pages/album/index.vue')
           },
           {
             path: 'create',
             name: 'album.create',
-            component: () => import('pages/album/Create.vue')
+            component: () => import('pages/album/create.vue')
           },
           {
             path: 'edit/:album',
             name: 'album.edit',
-            component: () => import('pages/album/Edit.vue')
+            component: () => import('pages/album/edit.vue')
           },
         ]
       },
@@ -53,22 +53,43 @@ const routes = [
           {
             path: '',
             name: 'artist.index',
-            component: () => import('pages/artist/Index.vue')
+            component: () => import('pages/artist/index.vue')
           },
           {
             path: 'create',
             name: 'artist.create',
-            component: () => import('pages/artist/Create.vue')
+            component: () => import('pages/artist/create.vue')
           },
           {
             path: 'edit/:artist',
             name: 'artist.edit',
-            component: () => import('pages/artist/Edit.vue')
+            component: () => import('pages/artist/edit.vue')
+          },
+        ]
+      },
+      {
+        path: 'genre/',
+        children: [
+          {
+            path: '',
+            name: 'genre.index',
+            component: () => import('pages/genre/index.vue')
+          },
+          {
+            path: 'create',
+            name: 'genre.create',
+            component: () => import('pages/genre/create.vue')
+          },
+          {
+            path: 'edit/:artist',
+            name: 'genre.edit',
+            component: () => import('pages/genre/edit.vue')
           },
         ]
       },
     ]
   },
+
 
   // Always leave this as last one,
   // but you can also remove it
