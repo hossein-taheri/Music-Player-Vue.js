@@ -2,6 +2,7 @@
 .thumbs.db
 node_modules
 public/images/music/
+public/musics/
 
 # Quasar core related directories
 .quasar

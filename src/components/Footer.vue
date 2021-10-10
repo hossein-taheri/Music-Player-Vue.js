@@ -7,16 +7,8 @@
       <div class="col-11">
         <div class="column">
           <div class="col-4 row">
-            <div class="col-3 text-center music_duration_font">
-              <div class="column">
-                <div class="col-4"/>
-                <div class="col-4">
-                  00:00
-                </div>
-                <div class="col-4"/>
-              </div>
-            </div>
-            <div class="col-6 text-center">
+            <div class="col-1"/>
+            <div class="col-11 text-left">
               <div class="column">
                 <div class="music_name_font col-8">
                   Music Name
@@ -26,18 +18,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
-              <div class="column">
-                <div class="col-4"/>
-                <div class="col-4">
-                  04:05
-                </div>
-                <div class="col-4"/>
-              </div>
-            </div>
           </div>
           <div class="col-8 row">
-            <div class="col-3"/>
+            <div class="col-1"/>
+            <div class="col-2 text-left music_duration_font">
+              <div class="col-4 items-center">
+                00:00
+              </div>
+            </div>
             <q-btn
               icon="skip_previous"
               size="lg"
@@ -66,7 +54,12 @@
               class="col-2"
               flat
             />
-            <div class="col-3"/>
+            <div class="col-2 text-right music_duration_font">
+              <div class="col-4 items-center">
+                04:05
+              </div>
+            </div>
+            <div class="col-1"/>
           </div>
         </div>
       </div>
@@ -74,16 +67,25 @@
   </q-footer>
 </template>
 <script>
+import MusicPlayer from "src/helper/music_player";
+
 export default {
   data() {
     return {
-      playing: true,
+      playing: false,
     }
+  },
+  mounted() {
+    MusicPlayer.loadList(['/musics/Fade.mp3'])
   },
   methods: {
     playPause() {
       this.playing = !this.playing;
-      //TODO :: code here
+      if (this.playing) {
+        MusicPlayer.play();
+      } else {
+        MusicPlayer.pause();
+      }
     }
   }
 }
