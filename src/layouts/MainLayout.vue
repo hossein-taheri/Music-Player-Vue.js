@@ -1,7 +1,5 @@
 <template>
-  <q-layout view="hHr lpR fFf" class="main_background">
-
-
+  <q-layout view="hHr lpR fFr" class="main_background">
     <HeaderDrawer/>
 
     <q-page-container>
@@ -9,7 +7,6 @@
     </q-page-container>
 
     <Footer/>
-
   </q-layout>
 </template>
 
@@ -26,6 +23,6 @@ export default {
 </script>
 <style>
 .main_background{
-  background: #1E1E1E;
+  background: #121212;
 }
 </style>

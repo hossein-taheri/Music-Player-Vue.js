@@ -1,6 +1,7 @@
 .DS_Store
 .thumbs.db
 node_modules
+public/images/music/
 
 # Quasar core related directories
 .quasar
