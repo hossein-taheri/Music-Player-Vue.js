@@ -76,7 +76,7 @@ export default {
     }
   },
   mounted() {
-    MusicPlayer.loadList(['/musics/Fade.mp3'])
+    MusicPlayer.loadList([''])
   },
   methods: {
     playPause() {

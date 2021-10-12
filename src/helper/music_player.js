@@ -3,24 +3,24 @@ let index = 0;
 let list = [];
 
 const loadList = async (linklist) => {
+  list = linklist;
+  index = 0;
+  await load();
+}
+const load = async () => {
   if (audio) {
     audio.pause();
   }
+  audio = new Audio(list[index]);
+  await audio.play();
 
-  list = linklist;
-
-  index = 0;
-  audio = new Audio(linklist[index]);
-
-  audio.onended(() => {
-    audio.pause();
+  audio.onended = async () => {
     index++;
-    if (index === linklist.length) {
+    if (index === list.length) {
       index = 0;
     }
-    audio = new Audio(linklist[index]);
-    audio.play();
-  })
+    load();
+  }
 }
 
 const play = async () => {
@@ -45,7 +45,6 @@ const previous = async () => {
 const next = async () => {
   //TODO next
 }
-
 
 
 module.exports = {
