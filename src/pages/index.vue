@@ -7,11 +7,8 @@
       :has-more="true"
       more-button-clicked="goToLastAdded">
       <MusicCard
-        v-for="n in 12" :key="n"
-        :music="{
-          name : 'Music Name',
-          artist : 'Artist Name',
-        }"
+        v-for="(music,index) in newest" :key="index"
+        :music="music"
       />
     </HorizontalListItems>
     <HorizontalListItems
@@ -19,23 +16,8 @@
       :has-more="true"
       more-button-clicked="goToFavorite">
       <MusicCard
-        v-for="n in 12" :key="n"
-        :music="{
-          name : 'Music Name',
-          artist : 'Artist Name',
-        }"
-      />
-    </HorizontalListItems>
-    <HorizontalListItems
-      title="newest"
-      :has-more="true"
-      more-button-clicked="goToLastAdded">
-      <MusicCard
-        v-for="n in 12" :key="n"
-        :music="{
-          name : 'Music Name',
-          artist : 'Artist Name',
-        }"
+        v-for="(music,index) in favorites" :key="index"
+        :music="music"
       />
     </HorizontalListItems>
   </q-page>
@@ -44,12 +26,42 @@
 <script>
 import HorizontalListItems from "components/HorizontalListItems";
 import MusicCard from "components/MusicCard";
+import RequestHelper from "src/helper/request";
 
 export default {
   components: {
     MusicCard,
     HorizontalListItems
+  },
+  data() {
+    return {
+      newest: [],
+      favorites: [],
+    }
+  },
+  mounted() {
+    this.getIndexData();
+  },
+  methods: {
+    getIndexData() {
+      RequestHelper
+        .send(
+          'get',
+          '/',
+        )
+        .then(data => {
+          this.newest = data.newest ;
+          this.favorites = data.favorites ;
+          console.log({
+
+          })
+        })
+        .catch(err => {
+
+        })
+    }
   }
+
 }
 
 </script>

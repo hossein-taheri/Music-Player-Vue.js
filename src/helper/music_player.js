@@ -1,6 +1,12 @@
 let audio = null;
 let index = 0;
 let list = [];
+let footer = null;
+
+
+const setFooter = (footer) => {
+  this.footer = footer;
+}
 
 const loadList = async (linklist) => {
   list = linklist;
@@ -11,8 +17,8 @@ const load = async () => {
   if (audio) {
     audio.pause();
   }
-  audio = new Audio(list[index]);
-  await audio.play();
+  audio = new Audio(list[index].link);
+  await play();
 
   audio.onended = async () => {
     index++;
@@ -26,18 +32,14 @@ const load = async () => {
 const play = async () => {
   if (audio) {
     await audio.play();
-    return true;
-  } else {
-    return false;
   }
+  this.footer.playing = true;
 }
 const pause = async () => {
   if (audio) {
     await audio.pause();
-    return true;
-  } else {
-    return false;
   }
+  this.footer.playing = false;
 }
 const next = async () => {
   index++;
@@ -60,5 +62,6 @@ module.exports = {
   play,
   pause,
   next,
-  previous
+  previous,
+  setFooter
 }

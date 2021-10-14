@@ -1,10 +1,7 @@
 <template>
   <q-footer elevated class="bg-header text-white">
     <q-toolbar class="row">
-      <q-img
-        class="col-1"
-        src="/images/music_image.png"/>
-      <div class="col-11">
+      <div class="col-12">
         <div class="column">
           <div class="col-4 row">
             <div class="col-1"/>
@@ -27,6 +24,7 @@
               </div>
             </div>
             <q-btn
+              id="skip_previous_btn"
               @click="previous"
               icon="skip_previous"
               size="lg"
@@ -34,6 +32,7 @@
               flat
             />
             <q-btn
+              id="play_circle_btn"
               v-if="!playing"
               icon="play_circle"
               size="lg"
@@ -42,6 +41,7 @@
               @click="playPause"
             />
             <q-btn
+              id="pause_circle_btn"
               v-else
               icon="pause_circle"
               size="lg"
@@ -78,32 +78,25 @@ export default {
     }
   },
   mounted() {
-    MusicPlayer.loadList(['/musics/e.mp3', '/musics/g.mp3', '/musics/n.mp3'])
+    this.setFooter();
   },
   methods: {
+    setFooter() {
+      MusicPlayer.setFooter(this)
+    },
     async playPause() {
-      this.playing = !this.playing;
       if (this.playing) {
-        if (!await MusicPlayer.play()) {
-          this.playing = !this.playing;
-        }
+        await MusicPlayer.pause()
       } else {
-        await MusicPlayer.pause();
+        await MusicPlayer.play();
       }
     },
     async next() {
       await MusicPlayer.next()
-      if (!this.playing) {
-        this.playing = true;
-      }
     },
     async previous() {
       await MusicPlayer.previous()
-      if (!this.playing) {
-        this.playing = true;
-      }
-    }
-    ,
+    },
   }
 }
 </script>
