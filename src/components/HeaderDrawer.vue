@@ -1,7 +1,7 @@
 <template>
-  <Header :toggle-right-drawer="toggleRightDrawer"/>
+  <Header :toggle-left-drawer="toggleLeftDrawer"/>
 
-  <Drawer :right-drawer-open="rightDrawerOpen"/>
+  <Drawer :left-drawer-open="leftDrawerOpen"/>
 </template>
 <script>
 import Header from "components/Header";
@@ -10,7 +10,7 @@ import Drawer from "components/Drawer";
 export default {
   data() {
     return {
-      rightDrawerOpen: false,
+      leftDrawerOpen: false,
     }
   },
   components: {
@@ -18,8 +18,8 @@ export default {
     Drawer,
   },
   methods: {
-    toggleRightDrawer() {
-      this.rightDrawerOpen = !this.rightDrawerOpen;
+    toggleLeftDrawer() {
+      this.leftDrawerOpen = !this.leftDrawerOpen;
     }
   }
 }

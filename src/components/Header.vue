@@ -1,10 +1,12 @@
 <template>
   <q-header elevated class="bg-header text-white">
     <q-toolbar>
+      <q-btn class="text-white" dense flat round icon="menu" @click="toggleLeftDrawer" />
+
       <q-toolbar-title>
         <q-avatar>
           <q-icon
-            class="text-purple"
+            class="text-white"
             size="md"
             name="audiotrack"
           />
@@ -12,14 +14,13 @@
         Music Player
       </q-toolbar-title>
 
-      <q-btn class="text-purple" dense flat round icon="menu" @click="toggleRightDrawer" />
     </q-toolbar>
   </q-header>
 </template>
 <script>
 export default {
   props: [
-    'toggleRightDrawer'
+    'toggleLeftDrawer'
   ]
 }
 </script>

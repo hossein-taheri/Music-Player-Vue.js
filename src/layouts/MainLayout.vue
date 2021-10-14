@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHr lpR fFr" class="main_background">
+  <q-layout view="lHh lpR lFf" class="main_background">
     <HeaderDrawer/>
 
     <q-page-container>

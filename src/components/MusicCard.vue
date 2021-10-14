@@ -50,7 +50,7 @@ export default {
           name: this.musicName,
           link: this.musicLink,
           image: this.imageLink,
-          artists: this.artists
+          artists: this.artistsNames
         }
       ])
     }

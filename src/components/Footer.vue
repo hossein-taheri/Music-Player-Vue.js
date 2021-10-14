@@ -8,10 +8,10 @@
             <div class="col-11 text-left">
               <div class="column">
                 <div class="music_name_font col-8">
-                  Music Name
+                  {{ name }}
                 </div>
                 <div class="music_artist_font col-4">
-                  Artist Name
+                  {{ artists }}
                 </div>
               </div>
             </div>
@@ -75,6 +75,8 @@ export default {
   data() {
     return {
       playing: false,
+      name: "Music Name",
+      artists: "Artist Name",
     }
   },
   mounted() {

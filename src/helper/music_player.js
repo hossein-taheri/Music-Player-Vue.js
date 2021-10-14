@@ -18,6 +18,8 @@ const load = async () => {
     audio.pause();
   }
   audio = new Audio(list[index].link);
+  this.footer.name = list[index].name;
+  this.footer.artists = list[index].artists;
   await play();
 
   audio.onended = async () => {
