@@ -13,7 +13,7 @@ const routes = [
         component: () => import('src/pages')
       },
       {
-        path: 'music/',
+        path: 'music/:page',
         name: 'music.index',
         component: () => import('pages/music/index.vue')
       },
@@ -28,7 +28,7 @@ const routes = [
         component: () => import('pages/music/edit.vue')
       },
       {
-        path: 'album/',
+        path: 'album/:page',
         name: 'album.index',
         component: () => import('pages/album/index.vue')
       },
@@ -43,7 +43,7 @@ const routes = [
         component: () => import('pages/album/edit.vue')
       },
       {
-        path: 'artist/',
+        path: 'artist/:page',
         name: 'artist.index',
         component: () => import('pages/artist/index.vue')
       },
@@ -58,7 +58,7 @@ const routes = [
         component: () => import('pages/artist/edit.vue')
       },
       {
-        path: 'genre/',
+        path: 'genre/:page',
         name: 'genre.index',
         component: () => import('pages/genre/index.vue')
       },

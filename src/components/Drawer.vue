@@ -23,7 +23,12 @@
         </q-item>
 
         <q-item
-          :to="{name:'music.index'}"
+          :to="{
+            name:'music.index',
+            params:{
+              page :1
+            }
+          }"
           clickable
           v-ripple>
           <q-item-section avatar>
@@ -36,7 +41,12 @@
         </q-item>
 
         <q-item
-          :to="{name:'album.index'}"
+          :to="{
+            name:'album.index',
+            params:{
+              page :1
+            }
+          }"
           clickable
           v-ripple>
           <q-item-section avatar>
@@ -49,7 +59,12 @@
         </q-item>
 
         <q-item
-          :to="{name:'genre.index'}"
+          :to="{
+            name:'genre.index',
+            params:{
+              page :1
+            }
+          }"
           clickable
           v-ripple>
           <q-item-section avatar>
@@ -62,7 +77,12 @@
         </q-item>
 
         <q-item
-          :to="{name:'artist.index'}"
+          :to="{
+            name:'artist.index',
+            params:{
+              page :1
+            }
+          }"
           clickable
           v-ripple>
           <q-item-section avatar>
@@ -94,7 +114,7 @@ export default {
   methods: {
     PushTo(name) {
       this.$router.push({
-        name:name
+        name: name
       })
     }
   }
@@ -104,7 +124,8 @@ export default {
 .drawer {
   background: #4c4c4c;
 }
+
 .q-item.q-router-link--active {
-  color: #000 ;
+  color: #000;
 }
 </style>
