@@ -19,7 +19,7 @@ const load = async () => {
     if (index === list.length) {
       index = 0;
     }
-    load();
+    await load();
   }
 }
 
@@ -39,16 +39,26 @@ const pause = async () => {
     return false;
   }
 }
-const previous = async () => {
-  //TODO previous
-}
 const next = async () => {
-  //TODO next
+  index++;
+  if (index === list.length) {
+    index = 0;
+  }
+  await load();
+}
+const previous = async () => {
+  index--;
+  if (index < 0) {
+    index = list.length - 1;
+  }
+  await load();
 }
 
 
 module.exports = {
   loadList,
   play,
-  pause
+  pause,
+  next,
+  previous
 }

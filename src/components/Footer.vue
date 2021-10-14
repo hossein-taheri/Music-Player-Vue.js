@@ -27,6 +27,7 @@
               </div>
             </div>
             <q-btn
+              @click="previous"
               icon="skip_previous"
               size="lg"
               class="col-2"
@@ -49,6 +50,7 @@
               @click="playPause"
             />
             <q-btn
+              @click="next"
               icon="skip_next"
               size="lg"
               class="col-2"
@@ -76,17 +78,32 @@ export default {
     }
   },
   mounted() {
-    MusicPlayer.loadList([''])
+    MusicPlayer.loadList(['/musics/e.mp3', '/musics/g.mp3', '/musics/n.mp3'])
   },
   methods: {
-    playPause() {
+    async playPause() {
       this.playing = !this.playing;
       if (this.playing) {
-        MusicPlayer.play();
+        if (!await MusicPlayer.play()) {
+          this.playing = !this.playing;
+        }
       } else {
-        MusicPlayer.pause();
+        await MusicPlayer.pause();
+      }
+    },
+    async next() {
+      await MusicPlayer.next()
+      if (!this.playing) {
+        this.playing = true;
+      }
+    },
+    async previous() {
+      await MusicPlayer.previous()
+      if (!this.playing) {
+        this.playing = true;
       }
     }
+    ,
   }
 }
 </script>
