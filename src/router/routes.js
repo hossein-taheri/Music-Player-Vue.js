@@ -68,7 +68,7 @@ const routes = [
         component: () => import('pages/genre/create.vue')
       },
       {
-        path: 'edit/:artist',
+        path: 'edit/:genre',
         name: 'genre.edit',
         component: () => import('pages/genre/edit.vue')
       },
