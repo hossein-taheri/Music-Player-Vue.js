@@ -21,24 +21,28 @@ const load = async () => {
   await play();
 
   audio.onended = async () => {
-    index++;
-    if (index === list.length) {
-      index = 0;
-    }
-    await load();
+    await next();
+  }
+  audio.onplay = () => {
+    this.footer.playing = true;
+  }
+  audio.onpause = () => {
+    this.footer.playing = false;
   }
 }
 
 const play = async () => {
-  if (audio) {
-    await audio.play();
+  if (!audio) {
+    return
   }
+  await audio.play();
   this.footer.playing = true;
 }
 const pause = async () => {
-  if (audio) {
-    await audio.pause();
+  if (!audio) {
+    return
   }
+  await audio.pause();
   this.footer.playing = false;
 }
 const next = async () => {
