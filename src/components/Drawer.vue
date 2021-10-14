@@ -8,9 +8,26 @@
       style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
     >
       <q-list class="text-white" padding>
-        <q-item clickable v-ripple>
+
+        <q-item
+          :to="{name:'home.index'}"
+          clickable
+          v-ripple>
           <q-item-section avatar>
-            <q-icon name="musics"/>
+            <q-icon name="home"/>
+          </q-item-section>
+
+          <q-item-section>
+            Home
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          :to="{name:'music.index'}"
+          clickable
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="music_note"/>
           </q-item-section>
 
           <q-item-section>
@@ -18,33 +35,42 @@
           </q-item-section>
         </q-item>
 
-        <q-item active clickable v-ripple>
+        <q-item
+          :to="{name:'album.index'}"
+          clickable
+          v-ripple>
           <q-item-section avatar>
-            <q-icon name="star"/>
+            <q-icon name="album"/>
           </q-item-section>
 
           <q-item-section>
-            Star
+            Albums
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple>
+        <q-item
+          :to="{name:'genre.index'}"
+          clickable
+          v-ripple>
           <q-item-section avatar>
-            <q-icon name="send"/>
+            <q-icon name="category"/>
           </q-item-section>
 
           <q-item-section>
-            Send
+            Genres
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple>
+        <q-item
+          :to="{name:'artist.index'}"
+          clickable
+          v-ripple>
           <q-item-section avatar>
-            <q-icon name="drafts"/>
+            <q-icon name="art_track"/>
           </q-item-section>
 
           <q-item-section>
-            Drafts
+            Artists
           </q-item-section>
         </q-item>
       </q-list>
@@ -64,11 +90,21 @@
 export default {
   props: [
     'leftDrawerOpen'
-  ]
+  ],
+  methods: {
+    PushTo(name) {
+      this.$router.push({
+        name:name
+      })
+    }
+  }
 }
 </script>
 <style>
 .drawer {
   background: #4c4c4c;
+}
+.q-item.q-router-link--active {
+  color: #000 ;
 }
 </style>

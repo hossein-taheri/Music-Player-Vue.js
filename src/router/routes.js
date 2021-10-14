@@ -5,87 +5,72 @@ const routes = [
     children: [
       {
         path: '',
+        redirect :'/index/'
+      },
+      {
+        path: 'index/',
+        name: 'home.index',
         component: () => import('src/pages')
       },
       {
         path: 'music/',
-        children: [
-          {
-            path: '',
-            name: 'music.index',
-            component: () => import('pages/music/index.vue')
-          },
-          {
-            path: 'create',
-            name: 'music.create',
-            component: () => import('pages/music/create.vue')
-          },
-          {
-            path: 'edit/:music',
-            name: 'music.edit',
-            component: () => import('pages/music/edit.vue')
-          },
-        ],
+        name: 'music.index',
+        component: () => import('pages/music/index.vue')
+      },
+      {
+        path: 'music/create',
+        name: 'music.create',
+        component: () => import('pages/music/create.vue')
+      },
+      {
+        path: 'music/edit/:music',
+        name: 'music.edit',
+        component: () => import('pages/music/edit.vue')
       },
       {
         path: 'album/',
-        children: [
-          {
-            path: '',
-            name: 'album.index',
-            component: () => import('pages/album/index.vue')
-          },
-          {
-            path: 'create',
-            name: 'album.create',
-            component: () => import('pages/album/create.vue')
-          },
-          {
-            path: 'edit/:album',
-            name: 'album.edit',
-            component: () => import('pages/album/edit.vue')
-          },
-        ]
+        name: 'album.index',
+        component: () => import('pages/album/index.vue')
+      },
+      {
+        path: 'album/create',
+        name: 'album.create',
+        component: () => import('pages/album/create.vue')
+      },
+      {
+        path: 'album/edit/:album',
+        name: 'album.edit',
+        component: () => import('pages/album/edit.vue')
       },
       {
         path: 'artist/',
-        children: [
-          {
-            path: '',
-            name: 'artist.index',
-            component: () => import('pages/artist/index.vue')
-          },
-          {
-            path: 'create',
-            name: 'artist.create',
-            component: () => import('pages/artist/create.vue')
-          },
-          {
-            path: 'edit/:artist',
-            name: 'artist.edit',
-            component: () => import('pages/artist/edit.vue')
-          },
-        ]
+        name: 'artist.index',
+        component: () => import('pages/artist/index.vue')
+      },
+      {
+        path: 'artist/create',
+        name: 'artist.create',
+        component: () => import('pages/artist/create.vue')
+      },
+      {
+        path: 'artist/edit/:artist',
+        name: 'artist.edit',
+        component: () => import('pages/artist/edit.vue')
       },
       {
         path: 'genre/',
-        children: [
-          {
-            path: '',
-            name: 'genre.index',
-            component: () => import('pages/genre/index.vue')
-          },
-          {
-            path: 'create',
-            name: 'genre.create',
-            component: () => import('pages/genre/create.vue')
-          },
-          {
-            path: 'edit/:artist',
-            name: 'genre.edit',
-            component: () => import('pages/genre/edit.vue')
-          },
-        ]
+        name: 'genre.index',
+        component: () => import('pages/genre/index.vue')
+      },
+      {
+        path: 'create',
+        name: 'genre.create',
+        component: () => import('pages/genre/create.vue')
+      },
+      {
+        path: 'edit/:artist',
+        name: 'genre.edit',
+        component: () => import('pages/genre/edit.vue')
       },
     ]
   },
