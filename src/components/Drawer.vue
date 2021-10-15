@@ -42,24 +42,6 @@
 
         <q-item
           :to="{
-            name:'album.index',
-            params:{
-              page :1
-            }
-          }"
-          clickable
-          v-ripple>
-          <q-item-section avatar>
-            <q-icon name="album"/>
-          </q-item-section>
-
-          <q-item-section>
-            Albums
-          </q-item-section>
-        </q-item>
-
-        <q-item
-          :to="{
             name:'genre.index',
             params:{
               page :1
@@ -93,6 +75,25 @@
             Artists
           </q-item-section>
         </q-item>
+
+        <q-item
+          :to="{
+            name:'album.index',
+            params:{
+              page :1
+            }
+          }"
+          clickable
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="album"/>
+          </q-item-section>
+
+          <q-item-section>
+            Albums
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </q-scroll-area>
 

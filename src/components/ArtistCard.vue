@@ -1,15 +1,25 @@
 <template>
   <q-card
-    @click="pushTo"
+    @click="goToArtistShow"
     class="card q-mr-sm">
     <q-img
       class="image"
       :src="image"
     />
 
-    <div class="q-mx-sm text-white text-center text-caption">
-      <div>
-        {{ artist.name }}
+    <div class="q-mx-sm text-white text-caption row">
+      <div class="col-8 text-left">
+        <div>
+          {{ artist.name }}
+        </div>
+      </div>
+      <div class="col-4 text-right">
+        <q-icon
+          @click="goToArtistEdit"
+          class="q-ma-xs"
+          name="edit"
+          size="sm"
+        />
       </div>
     </div>
   </q-card>
@@ -31,7 +41,15 @@ export default {
     this.image = request.BASE_URL + this.artist.image;
   },
   methods: {
-    pushTo() {
+    goToArtistShow() {
+      this.$router.push({
+        name: 'music.index',
+        params: {
+          artist: this.artist.id
+        }
+      })
+    },
+    goToArtistEdit() {
       this.$router.push({
         name: 'artist.edit',
         params: {

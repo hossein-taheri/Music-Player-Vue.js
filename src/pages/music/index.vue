@@ -89,17 +89,27 @@ export default {
     },
   },
   mounted() {
-    this.current = this.$route.params.page || 1;
+    this.getParameters();
     this.getMusicsData();
     this.getGenresData();
   },
   methods: {
+    getParameters() {
+      this.current = this.$route.params.page || 1;
+      this.artists = this.$route.params.artist ? [parseInt(this.$route.params.artist)] : null;
+      this.albums = this.$route.params.album ? [parseInt(this.$route.params.album)] : null;
+      this.genre = this.$route.params.genre ? parseInt(this.$route.params.genre) : null;
+    },
     getMusicsData() {
       let query = {
         page: this.current,
       };
       if (this.order)
         query['order'] = this.order.toLowerCase();
+      if (this.artists)
+        query['artists'] = this.artists;
+      if (this.albums)
+        query['albums'] = this.albums;
       if (this.genre && this.genre !== -1)
         query['genres'] = [this.genre];
 
