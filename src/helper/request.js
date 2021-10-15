@@ -40,12 +40,12 @@ const RequestHelper = {
   uploadImage: function (imageFile) {
     return new Promise((resolve, reject) => {
       const bodyFormData = new FormData();
-      bodyFormData.append('image', imageFile);
+      bodyFormData.append('file', imageFile);
 
       RequestHelper
         .send(
           'post',
-          '/upload/image/',
+          '/upload/file/',
           bodyFormData,
         )
         .then(data => {
@@ -59,12 +59,12 @@ const RequestHelper = {
   uploadAudio: function (audioFile) {
     return new Promise((resolve, reject) => {
       const bodyFormData = new FormData();
-      bodyFormData.append('audio', audioFile);
+      bodyFormData.append('file', audioFile);
 
       RequestHelper
         .send(
           'post',
-          '/upload/audio/',
+          '/upload/file/',
           bodyFormData,
         )
         .then(data => {
