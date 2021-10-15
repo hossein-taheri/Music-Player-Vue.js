@@ -44,6 +44,11 @@
       :boundary-numbers="false"
     />
   </div>
+
+  <div style="width: 100%" class="text-right">
+    <q-btn :to="{name:'music.create'}"  class="q-mr-md " round size="md" color="black" icon="add"/>
+  </div>
+
 </template>
 <script>
 import RequestHelper from "src/helper/request";
