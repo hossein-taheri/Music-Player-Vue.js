@@ -17,6 +17,7 @@
       <q-file
         type="file"
         dark
+        accept="image/*"
         label="Image(Optional)"
         color="white"
         class="q-pa-md full-width"

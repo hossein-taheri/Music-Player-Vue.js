@@ -40,7 +40,6 @@
         color="white"
         class="q-pa-md full-width"
         v-model="music.year"
-        v-on:change="UploadImage()"
       />
       <q-input
         type="textarea"
