@@ -50,6 +50,28 @@
         class="q-pa-md full-width"
         v-model="music.lyric"
       />
+      <q-select
+        :multiple="true"
+        dark
+        label="Artists"
+        color="white"
+        class="q-pa-md full-width"
+        v-model="music.artists"
+        :options="artists"
+        emit-value
+        map-options
+      />
+      <q-select
+        :multiple="true"
+        dark
+        label="Genres"
+        color="white"
+        class="q-pa-md full-width"
+        v-model="music.genres"
+        :options="genres"
+        emit-value
+        map-options
+      />
       <q-btn
         dark
         label="Create"
@@ -74,10 +96,62 @@ export default {
         year: null,
         lyric: null,
         image: null,
+        artists: [],
+        genres: [],
       },
+      artists: [],
+      genres: [],
     }
   },
+  mounted() {
+    this.artists = [];
+    this.getGenres();
+    this.getArtists(1);
+  },
   methods: {
+    getGenres() {
+      RequestHelper
+        .send(
+          'get',
+          '/genre/index',
+          {},
+          {}
+        )
+        .then(data => {
+          this.genres = [];
+          data.genres.forEach(genre => {
+            this.genres.push({
+              label: genre.name,
+              value: genre.id
+            })
+          });
+        })
+        .catch(err => {
+        })
+    },
+    getArtists(page) {
+      RequestHelper
+        .send(
+          'get',
+          '/artist/index',
+          {},
+          {
+            page
+          }
+        )
+        .then(data => {
+          data.artists.forEach(genre => {
+            this.artists.push({
+              label: genre.name,
+              value: genre.id
+            })
+          });
+          if (data.artists.length !== 0)
+            this.getArtists(page + 1);
+        })
+        .catch(err => {
+        })
+    },
     UploadMusic() {
       RequestHelper
         .uploadAudio(this.audioFile)
@@ -101,8 +175,8 @@ export default {
       let body = {
         name: this.music.name,
         link: this.music.link,
-        artists: [],
-        genres: [],
+        artists: this.music.artists,
+        genres: this.music.genres,
       }
       if (this.music.image)
         body.image = this.music.image;

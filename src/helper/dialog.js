@@ -5,7 +5,6 @@ import {
 
 function createDialog(statusCode, messages) {
   let msg = '';
-  console.log(typeof messages)
   messages.forEach(message => {
     msg += message + '\n';
   })
