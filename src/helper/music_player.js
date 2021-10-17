@@ -8,8 +8,9 @@ const setFooter = (footer) => {
   this.footer = footer;
 }
 
-const loadList = async (linklist) => {
-  list = linklist;
+const loadList = async (musicsList) => {
+  console.log(musicsList)
+  list = musicsList;
   index = 0;
   await load();
 }

@@ -7,6 +7,7 @@
       v-for="(album,index) in albums"
       :key="index"
       :album="album"
+      @click="playAlbum(index)"
     />
   </q-card>
   <div class="q-pa-lg flex flex-center">
@@ -21,7 +22,7 @@
   </div>
 
   <div style="width: 100%" class="text-right">
-    <q-btn :to="{name:'album.create'}"  class="q-mr-md " round size="md" color="black" icon="add"/>
+    <q-btn :to="{name:'album.create'}" class="q-mr-md " round size="md" color="black" icon="add"/>
   </div>
 
 </template>
@@ -29,6 +30,8 @@
 import RequestHelper from "src/helper/request";
 import HorizontalListItems from "components/HorizontalListItems";
 import AlbumCard from "components/AlbumCard";
+import musicPlayer from "../../helper/music_player";
+import request from "src/helper/request";
 
 
 export default {
@@ -76,6 +79,21 @@ export default {
         .catch(err => {
 
         })
+    },
+    playAlbum(index) {
+
+      for (let i = 0; i < this.albums[index].musics.length; i++) {
+        let str = '';
+        this.albums[index].musics[i].image = request.BASE_URL + this.albums[index].musics[i].image ;
+        this.albums[index].musics[i].link = request.BASE_URL + this.albums[index].musics[i].link ;
+        this.albums[index].musics[i].artists.forEach(artist => {
+          str += artist.name + " ";
+        })
+        this.albums[index].musics[i].artists = str;
+      }
+      musicPlayer.loadList(
+        this.albums[index].musics
+      )
     }
   }
 

@@ -109,11 +109,13 @@ export default {
     createAlbum() {
       let body = {
         name: this.album.name,
-        year: this.album.year,
         musics: this.album.musics
       }
       if (this.album.image) {
         body.image = this.album.image;
+      }
+      if (this.album.year) {
+        body.year = this.album.year;
       }
       RequestHelper
         .send(
