@@ -67,9 +67,36 @@ export default {
         year: null,
         musics: []
       },
+      musics: []
     }
   },
+  mounted() {
+    this.getMusics(1);
+  },
   methods: {
+    getMusics(page) {
+      RequestHelper
+        .send(
+          'get',
+          '/music/index',
+          {},
+          {
+            page
+          }
+        )
+        .then(data => {
+          data.musics.forEach(music => {
+            this.musics.push({
+              label: music.name,
+              value: music.id
+            })
+          });
+          if (data.musics.length !== 0)
+            this.getMusics(page + 1)
+        })
+        .catch(err => {
+        })
+    },
     UploadFile(val) {
       RequestHelper
         .uploadImage(this.imageFile)
@@ -82,6 +109,7 @@ export default {
     createAlbum() {
       let body = {
         name: this.album.name,
+        year: this.album.year,
         musics: this.album.musics
       }
       if (this.album.image) {
