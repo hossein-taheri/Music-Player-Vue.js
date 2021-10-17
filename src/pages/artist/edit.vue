@@ -8,7 +8,7 @@
     <div>
       <q-input
         dark
-        label="name"
+        label="Name"
         v-model="artist.name"
         color="white"
         class="q-pa-md full-width"

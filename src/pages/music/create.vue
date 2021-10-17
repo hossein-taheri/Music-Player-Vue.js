@@ -18,7 +18,7 @@
       />
       <q-input
         dark
-        label="name"
+        label="Name"
         v-model="music.name"
         color="white"
         class="q-pa-md full-width"
@@ -27,7 +27,7 @@
         type="file"
         accept="image/*"
         dark
-        label="image (Optional)"
+        label="Image (Optional)"
         color="white"
         class="q-pa-md full-width"
         v-model="imageFile"
