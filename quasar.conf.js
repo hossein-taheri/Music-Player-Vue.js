@@ -137,8 +137,8 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `music-player`,
-        short_name: `music-player`,
+        name: `Music Player`,
+        short_name: `Music Player`,
         description: `An online music-player`,
         display: 'standalone',
         orientation: 'portrait',
@@ -204,7 +204,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'music-player'
+        appId: 'Music Player'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

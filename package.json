@@ -1,8 +1,8 @@
 {
-  "name": "music-player",
+  "name": "Music Player",
   "version": "0.0.1",
   "description": "An online music-player",
-  "productName": "music-player",
+  "productName": "Music Player",
   "author": "Hossein <you@example.com>",
   "private": true,
   "scripts": {
