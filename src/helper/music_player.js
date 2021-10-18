@@ -39,6 +39,7 @@ const play = async () => {
     return
   }
   await audio.play();
+  this.footer.isFooterVisible = true;
   this.footer.playing = true;
 }
 const pause = async () => {

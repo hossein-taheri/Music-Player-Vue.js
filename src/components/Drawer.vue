@@ -94,6 +94,85 @@
           </q-item-section>
         </q-item>
 
+        <q-separator dark/>
+
+        <q-item
+          :to="{
+            name:'music.create',
+            params:{
+              page :1
+            }
+          }"
+          clickable
+          v-ripple>
+
+          <q-item-section avatar>
+            <q-icon name="music_note"/>
+          </q-item-section>
+
+          <q-item-section>
+            Add a music
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          :to="{
+            name:'genre.create',
+            params:{
+              page :1
+            }
+          }"
+          clickable
+          v-ripple>
+
+          <q-item-section avatar>
+            <q-icon name="category"/>
+          </q-item-section>
+
+          <q-item-section>
+            Add a genre
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          :to="{
+            name:'artist.create',
+            params:{
+              page :1
+            }
+          }"
+          clickable
+          v-ripple>
+
+          <q-item-section avatar>
+            <q-icon name="category"/>
+          </q-item-section>
+
+          <q-item-section>
+            Add an artist
+          </q-item-section>
+        </q-item>
+
+
+        <q-item
+          :to="{
+            name:'album.create',
+            params:{
+              page :1
+            }
+          }"
+          clickable
+          v-ripple>
+
+          <q-item-section avatar>
+            <q-icon name="album"/>
+          </q-item-section>
+
+          <q-item-section>
+            Add an album
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </q-scroll-area>
 

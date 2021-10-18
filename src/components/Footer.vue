@@ -1,25 +1,27 @@
 <template>
-  <q-footer elevated class="bg-header text-white">
+  <q-footer
+    v-show="isFooterVisible"
+    elevated
+    class="bg-header text-white">
     <q-toolbar class="row">
       <div class="col-12">
         <div class="column">
           <div class="col-4 row">
-            <div class="col-1"/>
-            <div class="col-11 text-left">
+            <div class="col-12 text-center">
               <div class="column">
-                <div class="music_name_font col-8">
+                <div class="text-subtitle1 col-8">
                   {{ name }}
                 </div>
-                <div class="music_artist_font col-4">
+                <div class="text-subtitle2 col-4">
                   {{ artists }}
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-8 row">
+          <div class="col-8 row text-center">
             <div class="col-1"/>
-            <div class="col-2 text-left music_duration_font">
-              <div class="col-4 items-center">
+            <div class="col-2 text-left text-subtitle1">
+              <div class="col-4 text-center">
                 00:00
               </div>
             </div>
@@ -56,7 +58,7 @@
               class="col-2"
               flat
             />
-            <div class="col-2 text-right music_duration_font">
+            <div class="col-2 text-right">
               <div class="col-4 items-center">
                 04:05
               </div>
@@ -74,9 +76,10 @@ import MusicPlayer from "src/helper/music_player";
 export default {
   data() {
     return {
+      isFooterVisible: false,
       playing: false,
-      name: "Music Name",
-      artists: "Artist Name",
+      name: "",
+      artists: "",
     }
   },
   mounted() {
