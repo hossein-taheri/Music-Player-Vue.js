@@ -178,7 +178,7 @@
 
     <q-img
       class="absolute-top"
-      src="/images/music/index.webp"
+      src="/images/music.webp"
       style="height: 150px">
       <div class="absolute-bottom bg-transparent">
         <div class="text-white">Music Player</div>

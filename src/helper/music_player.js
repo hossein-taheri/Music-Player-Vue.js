@@ -1,3 +1,4 @@
+const {timeFormatter} = require("src/helper/time");
 let audio = null;
 let index = 0;
 let list = [];
@@ -36,7 +37,7 @@ const load = async () => {
 
 const play = async () => {
   if (!audio) {
-    return
+    return;
   }
   await audio.play();
   this.footer.isFooterVisible = true;
@@ -44,7 +45,7 @@ const play = async () => {
 }
 const pause = async () => {
   if (!audio) {
-    return
+    return;
   }
   await audio.pause();
   this.footer.playing = false;
@@ -63,6 +64,20 @@ const previous = async () => {
   }
   await load();
 }
+
+const setDurationCurrentTime = () => {
+  if (audio) {
+    if (this.footer) {
+      console.log()
+      this.footer.duration = timeFormatter(audio.duration || 0);
+      this.footer.currentTime = timeFormatter(audio.currentTime || 0);
+    }
+  }
+}
+
+(function () {
+  setInterval(setDurationCurrentTime, 250)
+})()
 
 
 module.exports = {

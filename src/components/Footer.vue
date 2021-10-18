@@ -22,7 +22,7 @@
             <div class="col-1"/>
             <div class="col-2 text-left text-subtitle1">
               <div class="col-4 text-center">
-                00:00
+                {{ currentTime }}
               </div>
             </div>
             <q-btn
@@ -60,7 +60,7 @@
             />
             <div class="col-2 text-right">
               <div class="col-4 items-center">
-                04:05
+                {{ duration }}
               </div>
             </div>
             <div class="col-1"/>
@@ -80,6 +80,8 @@ export default {
       playing: false,
       name: "",
       artists: "",
+      duration: "00:00",
+      currentTime: "00:00",
     }
   },
   mounted() {
