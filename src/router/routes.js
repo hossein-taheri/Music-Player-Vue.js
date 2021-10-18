@@ -13,7 +13,7 @@ const routes = [
         component: () => import('src/pages')
       },
       {
-        path: 'music/:page/:artist?/:genre?/:album?',
+        path: 'music/:page/:artist?/:genre?/:album?/:by_favorite?',
         name: 'music.index',
         component: () => import('pages/music/index.vue')
       },

@@ -100,6 +100,11 @@ export default {
       this.artists = this.$route.params.artist ? [parseInt(this.$route.params.artist)] : null;
       this.albums = this.$route.params.album ? [parseInt(this.$route.params.album)] : null;
       this.genre = this.$route.params.genre ? parseInt(this.$route.params.genre) : null;
+      if (this.$route.params['by_favorite']) {
+        this.order = 'Favorite'
+      } else {
+        this.order = 'Newest'
+      }
     },
     getMusicsData() {
       let query = {

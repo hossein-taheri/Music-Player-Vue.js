@@ -5,7 +5,7 @@
     <HorizontalListItems
       title="Newest"
       :has-more="true"
-      more-button-clicked="goToLastAdded">
+      :more-button-clicked="goToAllNewest">
       <MusicCard
         v-for="(music,index) in newest" :key="index"
         :music="music"
@@ -14,7 +14,7 @@
     <HorizontalListItems
       title="Favorites"
       :has-more="true"
-      more-button-clicked="goToFavorite">
+      :more-button-clicked="goToAllFavorite">
       <MusicCard
         v-for="(music,index) in favorites" :key="index"
         :music="music"
@@ -50,16 +50,31 @@ export default {
           '/',
         )
         .then(data => {
-          this.newest = data.newest ;
-          this.favorites = data.favorites ;
-          console.log({
-
-          })
+          this.newest = data.newest;
+          this.favorites = data.favorites;
+          console.log({})
         })
         .catch(err => {
 
         })
-    }
+    },
+    goToAllFavorite() {
+      this.$router.push({
+        name: 'music.index',
+        params: {
+          page: 1,
+          'by_favorite': 1,
+        }
+      })
+    },
+    goToAllNewest() {
+      this.$router.push({
+        name: 'music.index',
+        params: {
+          page: 1
+        }
+      })
+    },
   }
 
 }
