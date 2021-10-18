@@ -1,7 +1,7 @@
 <template>
   <q-card
     @click="play"
-    class="card q-mr-sm">
+    class="card q-mr-sm q-mb-sm">
     <q-img
       class="image"
       :src="imageLink"
@@ -60,7 +60,7 @@ export default {
 <style>
 .card {
   width: 150px;
-  height: 220px;
+  height: 230px;
   background: #1E1E1E;
 }
 

@@ -13,7 +13,7 @@
       </q-btn>
     </div>
   </div>
-  <q-scroll-area style="height: 220px; max-width: 100vw;">
+  <q-scroll-area style="height: 240px; max-width: 100vw;">
     <div class="row no-wrap">
       <slot/>
     </div>
