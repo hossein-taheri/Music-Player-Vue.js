@@ -7,7 +7,7 @@ a frontend-side Music Player written in Vue.js (Quasar framework)
 
 ## Screenshots
 <img src="/screenshots/musics_pic.png" width="100%">
-<img src="/screenshots/musics_pic.png.png" width="100%">
+<img src="/screenshots/genres_pic.png" width="100%">
 
 ## Install
 1. ```git clone https://github.com/hossein-taheri/Music-Player-Vue.js```
