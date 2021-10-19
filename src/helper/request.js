@@ -5,7 +5,7 @@ import {
 } from "quasar";
 import createDialog from "../helper/dialog";
 
-const BASE_URL = "http://192.168.1.103:3000/";
+const BASE_URL = "http://127.0.0.1:3000/";
 const BASE_API_URL = BASE_URL + "api/";
 
 const RequestHelper = {

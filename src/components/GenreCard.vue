@@ -1,7 +1,7 @@
 <template>
   <q-card
     @click="goToGenreShow"
-    class="card q-mr-sm">
+    class="card q-mr-sm q-mb-sm">
     <q-img
       class="image"
       :src="image"

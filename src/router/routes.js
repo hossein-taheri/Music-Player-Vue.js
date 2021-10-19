@@ -12,78 +12,82 @@ const routes = [
         name: 'home.index',
         component: () => import('src/pages')
       },
+    ]
+  },
+  {
+    path: '/music/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
       {
-        path: 'music/:page/:artist?/:genre?/:album?/:by_favorite?',
+        path: ':page/:artist?/:genre?/:album?/:by_favorite?',
         name: 'music.index',
         component: () => import('pages/music/index.vue')
       },
       {
-        path: 'music/create',
+        path: 'create',
         name: 'music.create',
         component: () => import('pages/music/create.vue')
-      },
+      }
+    ]
+  },
+  {
+    path: '/album/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
       {
-        path: 'music/edit/:music',
-        name: 'music.edit',
-        component: () => import('pages/music/edit.vue')
-      },
-      {
-        path: 'album/:page',
+        path: ':page',
         name: 'album.index',
         component: () => import('pages/album/index.vue')
       },
       {
-        path: 'album/show/:album',
-        name: 'album.show',
-        component: () => import('pages/album/show.vue')
-      },
-      {
-        path: 'album/create',
+        path: 'create',
         name: 'album.create',
         component: () => import('pages/album/create.vue')
       },
       {
-        path: 'album/edit/:album',
+        path: 'edit/:album',
         name: 'album.edit',
         component: () => import('pages/album/edit.vue')
       },
+    ]
+  },
+  {
+    path: '/artist/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
       {
-        path: 'artist/:page',
+        path: ':page',
         name: 'artist.index',
         component: () => import('pages/artist/index.vue')
       },
       {
-        path: 'artist/show/:artist',
-        name: 'artist.show',
-        component: () => import('pages/artist/show.vue')
-      },
-      {
-        path: 'artist/create',
+        path: 'create',
         name: 'artist.create',
         component: () => import('pages/artist/create.vue')
       },
       {
-        path: 'artist/edit/:artist',
+        path: 'edit/:artist',
         name: 'artist.edit',
         component: () => import('pages/artist/edit.vue')
       },
+    ]
+  },
+  {
+    path: '/genre/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
       {
-        path: 'genre/:page',
+        path: ':page',
         name: 'genre.index',
         component: () => import('pages/genre/index.vue')
       },
       {
-        path: 'genre/show/:genre',
-        name: 'genre.show',
-        component: () => import('pages/genre/show.vue')
-      },
-      {
-        path: 'genre/create',
+        path: 'create',
         name: 'genre.create',
         component: () => import('pages/genre/create.vue')
       },
       {
-        path: 'genre/edit/:genre',
+        path: 'edit/:genre',
         name: 'genre.edit',
         component: () => import('pages/genre/edit.vue')
       },

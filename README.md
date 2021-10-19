@@ -1,22 +1,24 @@
-# music-player (music-player)
+# Music-Player
 
-An online music-player
+a frontend-side Music Player written in Vue.js (Quasar framework)
 
-## Install the dependencies
-```bash
-npm install
-```
+#### Backend Repository
+  - backend repository of this app is available on  ```https://github.com/hossein-taheri/Music-Player-Node.js```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Screenshots
+<img src="/screenshots/musics_pic.png" width="100%">
+<img src="/screenshots/musics_pic.png.png" width="100%">
+
+## Install
+1. ```git clone https://github.com/hossein-taheri/Music-Player-Vue.js```
+1. ```cd Music-Player-Vue.js```
+1. ```npm install```
+1. Start the app in development mode via ```quasar dev```
+1. Build the app for production via ```quasar build```
 
 
-### Build the app for production
-```bash
-quasar build
-```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v2.quasar.dev/quasar-cli/quasar-conf-js).
+
+
+
+
